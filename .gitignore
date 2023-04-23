@@ -3,6 +3,7 @@ venv
 参考
 config.py
 .idea
+alembic.ini
 
 ### Python template
 # Byte-compiled / optimized / DLL files
