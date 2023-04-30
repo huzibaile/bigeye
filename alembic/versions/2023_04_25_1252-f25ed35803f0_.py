@@ -1,8 +1,8 @@
-"""Add email column to users table
+"""empty message
 
-Revision ID: d36c1c4006b2
-Revises: ab86865c4202
-Create Date: 2023-04-24 01:52:50.157529
+Revision ID: f25ed35803f0
+Revises: 508a0e5256ed
+Create Date: 2023-04-25 12:52:20.505196
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd36c1c4006b2'
-down_revision = 'ab86865c4202'
+revision = 'f25ed35803f0'
+down_revision = '508a0e5256ed'
 branch_labels = None
 depends_on = None
 

@@ -1,1 +1,1 @@
-from rankwar.view import rw_report
+from rankwar.api import rw_report

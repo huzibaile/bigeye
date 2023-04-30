@@ -1,10 +1,15 @@
-from sqlalchemy import Column, Float, String, BigInteger, Index, DateTime
+from sqlalchemy import Column, DateTime
+from sqlalchemy import Float, String, BigInteger, Index
+from sqlalchemy.ext.declarative import declarative_base
 
-from database.model import Base
+from database.model import MetaMixin
+
+Base = declarative_base()
 
 
-class BattleLog(Base):
-    __abstract__ = True
+class BattleLog(Base, MetaMixin):
+    __tablename__ = 'BattleLog'
+    # __abstract__ = True
     id = Column(String(50), primary_key=True)
     timestamp_ended = Column(BigInteger)
     attacker_id = Column(String(50))
@@ -26,8 +31,8 @@ class BattleLog(Base):
     chain_bonus = Column(Float, default=0)
 
 
-class TornBingWaAllData(Base):
-    __abstract__ = True
+class TornBingWaAllData(Base, MetaMixin):
+    __tablename__ = 'TornBingWaAllData'
     TransDate = Column(String(30), primary_key=True)
     player_id = Column(BigInteger, primary_key=True)
     name = Column(String(100))

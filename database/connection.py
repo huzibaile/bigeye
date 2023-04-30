@@ -64,3 +64,7 @@ def get_mysql_session_class():
 def get_server_session_class():
     Session = sessionmaker(get_server_engine())
     return Session
+
+
+server_session_class = sessionmaker(get_server_engine())
+mysql_session_class = sessionmaker(get_mysql_engine())
