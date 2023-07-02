@@ -1,11 +1,11 @@
 from logging.config import fileConfig
 
 from alembic import context
+from database.model import Base
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from database.model import Base
-from rankwar import model as rw_model
+from database import faction_model as rw_model
 
 model_list = [rw_model]
 # this is the Alembic Config object, which provides

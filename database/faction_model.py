@@ -1,6 +1,10 @@
 from sqlalchemy import Column, Integer, String, BigInteger
 
-from database.model import BaseMixin, Base
+from database.enhance import BaseMixin, Base
+
+
+class Faction(Base, BaseMixin):
+    pass
 
 
 class RankWarRecord(Base, BaseMixin):
@@ -30,4 +34,6 @@ class RankWarRecord(Base, BaseMixin):
     end_time = Column(BigInteger)
     winner = Column(Integer, nullable=False)
 
-# Base.metadata.create_all(get_mysql_engine())
+
+class RankWarStrategy(Base, BaseMixin):
+    pass

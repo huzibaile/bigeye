@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from rankwar.api import rw_report
+from rank_war.api import rw_report
 
 app = FastAPI(title='BEreportapi文档')
 
