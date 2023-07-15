@@ -9,5 +9,3 @@ class User(Base, BaseMixin):
     torn_id = Column(Integer, nullable=False)
     torn_name = Column(String(50), nullable=False)
     torn_key = Column(String(36))
-
-    def total_energy

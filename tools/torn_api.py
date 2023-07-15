@@ -2,7 +2,6 @@ import requests
 from fastapi import status
 
 from config import TORN_API_KEY, IS_TESTING_SERVICE
-from tools.base import throw_api_error
 
 ERROR_DESCRIPTION = {
     0: "Unknown error : Unhandled error, should not occur.",
@@ -24,6 +23,28 @@ ERROR_DESCRIPTION = {
     16: "Access level of this key is not high enough : A selection is being called of which this key does not have permission to access.",
     17: "Backend error occurred, please try again."
 }
+
+
+# api错误规范
+class ApiException(Exception):
+    def __init__(self, code, message, status_code):
+        super().__init__(message)
+        self.code = code
+        self.status_code = status_code
+
+    def to_dict(self):
+        return {'code': self.code, 'error': self.args[0]}
+
+    def __str__(self):
+        return f"{self.code}: {self.args[0]}"
+
+
+# 抛出api错误
+def throw_api_error(code: int, msg: str, status_code: status) -> tuple:
+    try:
+        raise ApiException(code, msg, status_code)
+    except ApiException as e:
+        return e.to_dict(), e.status_code
 
 
 class TornApi:

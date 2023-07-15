@@ -38,7 +38,7 @@ class SQLServerDatabase:
         self.user = user
         self.password = password
         self.db_name = db_name
-        self.engine_url = f"mssql+pymssql://{user}:{password}@{server}/{db_name}?charset=utf8"
+        self.engine_url = f'mssql+pymssql://{user}:{password}@{server}/{db_name}?charset=utf8'
         self.engine = self._create_engine()
         self.Session = self._create_session()
 

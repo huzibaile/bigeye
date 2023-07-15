@@ -3,6 +3,8 @@ from datetime import datetime
 from sqlalchemy import Column, DateTime, Boolean
 from sqlalchemy.orm import declarative_base
 
+from database.connection import mysql_db
+
 Base = declarative_base()
 
 
@@ -23,12 +25,14 @@ class BaseMixin(MetaMixin):
     create_time = Column(DateTime, default=datetime.now)  # 创建日期
     update_time = Column(DateTime, default=datetime.now, onupdate=datetime.now)  # 更新日期
 
-    def insert(self, data: Base):
-        pass
+    # def insert(self, data):
+    #     pass
+    #
+    # def update(self, data):
+    #     pass
+    #
+    # def delete(self):
+    #     pass
 
-    def update(self, data):
-        pass
 
-    def delete(self):
-        pass
-# Base.metadata.create_all(get_mysql_engine())
+Base.metadata.create_all(mysql_db.engine)
